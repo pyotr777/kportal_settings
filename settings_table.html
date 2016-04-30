@@ -14,13 +14,23 @@
                 <td>&nbsp;</td>
                 <td>Apache : http.conf : port</td>
                 <td>80</td>
-                <td>Not used. Setting "Listen 80" as in 2.3.1 breaks Apache.</td>
+                <td>Not used. Setting "Listen 80" as in 2.3.1 breaks Apache.<br>
+                Path: /etc/httpd/conf/httpd.conf</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td>Apache : http.conf : DocumentRoot</td>
-                <td>"/var/www/html/AppMarket"</td>
-                <td>In manual: "/home/kportal/git/source/kpserver" (2.3.1)</td>
+                <td>Apache : http.conf : DocumentRoot : path</td>
+                <td>"/etc/kportal/www"</td>
+                <td>In manual: "/home/kportal/git/source/kpserver" (2.4.1)</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>Apache : http.conf : DocumentRoot : options</td>
+                <td>AllowOverride None<br>
+                Options Includes FollowSymLinks MultiViews<br>
+                Order allow,deny<br>
+                Allow from all</td>
+                <td>In Install manual 2.4.1</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -31,7 +41,7 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>SSL : ssl.conf : VirtualHost</td>
-                <td>172.31.28.156:9005</td>
+                <td>172.31.20.211:9005</td>
                 <td>In manual: _default_:9005. <br>
                 To fix errors  "Fix Error: The timeout specified has expired: SSL input filter read failed"  recommended to use specific IP.</td>
             </tr>
@@ -44,74 +54,63 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>SSL : ssl.conf : ServerName</td>
-                <td>DNS name with port number: ec2-52-196-208-204.ap-northeast-1.compute.amazonaws.com:9005
-</td>
-                <td></td>
+                <td>52.196.224.123:9005</td>
+                <td>Need DNS name? ec2-52-196-224-123.ap-northeast-1.compute.amazonaws.com</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>SSL : certificated : .crt path</td>
-                <td>/etc/ssl/certs/AppMarket/ssl/server.crt</td>
-                <td>In manual: /opt/lampp/etc/ssl.crt/AppMarket/server.crt</td>
+                <td>/etc/kportal/www/ssl/server.crt</td>
+                <td>In install manual: /opt/lampp/etc/ssl.crt/AppMarket/server.crt<br>In user manual 2.1.2 : https://bounceme.anlab.info:9005/Appmarket_test/ssl/server.crt<br>
+                Installed with kp_server in /etc/kportal/www/ssl.</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>SSL : certificated : .key path</td>
-                <td>/etc/pki/tls/private/AppMarket/ssl/server.key</td>
-                <td>In manual "/opt/lampp/etc/ssl.key/AppMarket/server.key</td>
+                <td>/etc/kportal/www/ssl/server.key</td>
+                <td>In manual "/opt/lampp/etc/ssl.key/AppMarket/server.key<br>
+                Installed with kp_server in /etc/kportal/www/ssl.</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>Docker : bridge : name</td>
-                <td></td>
+                <td>bridge0</td>
                 <td></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>Docker : bridge : IP</td>
-                <td></td>
+                <td>10.0.0.1</td>
                 <td></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>Docker : socket : address</td>
-                <td>default (/var/run/docker.sock)</td>
+                <td>127.0.0.1:9555</td>
                 <td>In manual: 127.0.0.1:9555</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td>Docker : socket : owner group</td>
-                <td>root docker</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>Docker : socket : permissions</td>
-                <td>srw-rw----.</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
                 <td>Docker : custom image tars : path</td>
-                <td>/var/www/html/AppMarket/images/</td>
+                <td>/etc/kportal/www/images/</td>
                 <td></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>AppMarket : config.xml : path</td>
-                <td>/var/www/html/AppMarket/config.xml</td>
+                <td>/etc/kportal/www/config.xml</td>
                 <td>In DocumentRoot. In manual kportal_v1.1/src/www/AppMarket/config.xml </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>AppMarket : config.xml : websocket URI</td>
-                <td>wss://ec2-52-196-208-204.ap-northeast-1.compute.amazonaws.com:9004/kportal</td>
+                <td>wss://ec2-52-196-224-123.ap-northeast-1.compute.amazonaws.com:9004/kportal</td>
                 <td>Need external address with /kportal. Local address doesn't work. </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>kp_tool : path</td>
-                <td>/bin/kp_tool</td>
+                <td>/usr/bin/kp_tool</td>
                 <td>Also in /home/kportal/src/release</td>
             </tr>
             <tr>
@@ -129,7 +128,7 @@
              <tr>
                 <td>&nbsp;</td>
                 <td>kp_server : path</td>
-                <td>/bin/kp_server</td>
+                <td>/usr/bin/kp_server</td>
                 <td>Also in /home/kportal/src/release</td>
             </tr>
             <tr>
