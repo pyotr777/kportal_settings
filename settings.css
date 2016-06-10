@@ -1,5 +1,9 @@
+
 body {
-    font-family: "Helvetica", sans-serif;
+    font-family: "Open Sans", "Arial Narrow", "Helvetica", sans-serif;
+    font-size: 9pt;
+    font-stretch: condensed;
+    font-weight: 100%;
 }
 table {
     width:100%;
@@ -11,7 +15,7 @@ table {
 }
 
 table td {
-    padding: 5px;
+    padding: 1px;
     vertical-align: top;
 }
 
