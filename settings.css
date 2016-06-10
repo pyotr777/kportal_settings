@@ -42,3 +42,11 @@ table td:first-child:before {
     counter-increment: serial-number; /* Increment the serial number counter */
     content: counter(serial-number); /* Display the counter */
 }
+
+.group {
+    padding:0;
+    font-size: 125%;
+    font-weight:bold;
+    vertical-align: middle;
+    text-align: center;
+}
