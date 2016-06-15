@@ -6,7 +6,7 @@
         <AppMarketDomain>https://localhost:9005</AppMarketDomain>
         <IconFolder>/etc/kportal/www/images</IconFolder>
         <SampleImages> 
-            <Image id="ubuntu_base" tag="6baad567d8e5"/>
+            <Image id="6baad567d8e5" tag="ubuntu_base"/>
         </SampleImages>
     </KPServer>
 </Data>
