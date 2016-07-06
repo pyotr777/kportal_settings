@@ -14,17 +14,34 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td rowspan="4" class="group">Apache</td>
+                <td rowspan="7" class="group">Apache</td>
                 <td>http.conf : path</td>
                 <td>/etc/httpd/conf/httpd.conf</td>
-                <td><a href="httpd.conf" target="_blank">httpd.conf</a></td>
-            </tr>            
+                <td><a href="redhat/httpd.conf" target="_blank">redhat/httpd.conf</a></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>apache2.conf : path</td>
+                <td>/etc/apache2/apache2.conf</td>
+                <td><a href="ubuntu/apache2.conf" target="_blank">ubuntu/apache2.conf</a></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>ports.conf : path</td>
+                <td>/etc/apache2/ports.conf</td>
+                <td><a href="ubuntu/ports.conf" target="_blank">ubuntu/ports.conf</a></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>000-default.conf : path</td>
+                <td>/etc/apache2/sites-available/000-default.conf</td>
+                <td><a href="ubuntu/sites-enabled/000-default.conf" target="_blank">ubuntu/sites-enabled/000-default.conf</a></td>
+            </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>http.conf : port</td>
                 <td>80</td>
-                <td>Not used. Setting "Listen 80" as in 2.3.1 breaks Apache.<br>
-                Path: /etc/httpd/conf/httpd.conf</td>
+                <td></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -43,10 +60,16 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td rowspan="7" class="group">SSL</td>
+                <td rowspan="8" class="group">SSL</td>
+                <td>ssl.conf : path</td>
+                <td>/etc/apache2/sites-available/default-ssl.conf</td>
+                <td><a href="ubuntu/sites-enabled/default-ssl.conf" target="_blank">ubuntu/sites-enabled/default-ssl.conf</a></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
                 <td>ssl.conf : path</td>
                 <td>/etc/httpd/conf.d/ssl.conf</td>
-                <td><a href="ssl.conf" target="_blank">ssl.conf</a></td>
+                <td><a href="redhat/ssl.conf" target="_blank">redhat/ssl.conf</a></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -57,9 +80,11 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>ssl.conf : VirtualHost</td>
-                <td>172.31.20.211:9005</td>
+                <td>redhat: 172.31.20.211:9005<br />
+                ubuntu: _default_:443</td>
                 <td>In manual: _default_:9005. <br>
-                To fix errors  "Fix Error: The timeout specified has expired: SSL input filter read failed"  recommended to use specific IP.</td>
+                To fix errors  "Fix Error: The timeout specified has expired: SSL input filter read failed"  recommended to use specific IP. (on RHEL)<br />
+                On ubuntu run Apache2 in container with port 443 mapped to host port 9005.</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
