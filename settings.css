@@ -20,25 +20,29 @@ table td {
 }
 
 table th {
-    background-color: #ccc;
+    background-color: #def;
     padding: 10px;
 }
-table tr:nth-child(even) {
+table.main tr:nth-child(even) {
     background-color: #ffffff;
 }
-table tr:nth-child(odd) {
-    background-color: #eefaff;
+table.main tr:nth-child(odd) {
+    background-color: #EBF8FF;
 }
 
-table tr:hover {
-    background-color: #ffefc4;
+table.main tr:hover {
+    background-color:#fffae8 ;
+}
+
+table.main td:hover {
+    background-color:#fff1c5 ;
 }
 
 /* Automatic Serial Number Row */
-table {
+table.main {
     counter-reset: serial-number; /* Set the serial number counter to 0 */
 }
-table td:first-child:before {
+table.main td:first-child:before {
     counter-increment: serial-number; /* Increment the serial number counter */
     content: counter(serial-number); /* Display the counter */
 }
@@ -49,4 +53,8 @@ table td:first-child:before {
     font-weight:bold;
     vertical-align: middle;
     text-align: center;
+}
+
+.mutable {
+	background-color:#FFE0C0;
 }

@@ -4,7 +4,7 @@
         <link rel="stylesheet" type="text/css" href=settings.css>
     </head>
     <body>
-        <table>
+        <table class="main">
             <tr>
                 <th>#</th>
                 <th>Settings group</th>
@@ -63,18 +63,18 @@
                 <td rowspan="8" class="group">SSL</td>
                 <td>ssl.conf : path</td>
                 <td>/etc/apache2/sites-available/default-ssl.conf</td>
-                <td><a href="ubuntu/sites-enabled/default-ssl.conf" target="_blank">ubuntu/sites-enabled/default-ssl.conf</a></td>
+                <td class="mutable"><a href="ubuntu/sites-enabled/default-ssl.conf" target="_blank">ubuntu/sites-enabled/default-ssl.conf</a></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>ssl.conf : path</td>
                 <td>/etc/httpd/conf.d/ssl.conf</td>
-                <td><a href="redhat/ssl.conf" target="_blank">redhat/ssl.conf</a></td>
+                <td class="mutable"><a href="redhat/ssl.conf" target="_blank">redhat/ssl.conf</a></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>ssl.conf : port</td>
-                <td>9005</td>
+                <td>443</td>
                 <td></td>
             </tr>
             <tr>
@@ -83,8 +83,8 @@
                 <td>redhat: 172.31.20.211:9005<br />
                 ubuntu: _default_:443</td>
                 <td>In manual: _default_:9005. <br>
-                To fix errors  "Fix Error: The timeout specified has expired: SSL input filter read failed"  recommended to use specific IP. (on RHEL)<br />
-                On ubuntu run Apache2 in container with port 443 mapped to host port 9005.</td>
+                To fix errors  "The timeout specified has expired: SSL input filter read failed"  recommended to use specific IP. (on RHEL)<br />
+                Apache2 runs in Dcoker container with port 443 mapped to host port 9005.</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -142,7 +142,7 @@
                 <td rowspan="2" class="group">AppMarket</td>
                 <td>config.xml : path</td>
                 <td>/etc/kportal/www/config.xml</td>
-                <td><a href="config.xml" target="_blank">config.xml</td>
+                <td class="mutable"><a href="config.xml" target="_blank">config.xml</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -222,13 +222,19 @@
                 <td>&nbsp;</td>
                 <td>kportal_conf.xml : path</td>
                 <td>/etc/kportal/kportal_conf.xml</td>
-                <td><a href="kportal_conf.xml" target="_blank">kportal_conf.xml</a></td>
+                <td class="mutable"><a href="kportal_conf.xml" target="_blank">kportal_conf.xml</a></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td>kportal_conf.xml : AppMarketDomain</td>
                 <td>https://localhost:9005</td>
                 <td></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="mutable" width="30">&nbsp;</td>
+                <td> Configuration files that should be edited upon new K-portal installation.</td>
             </tr>
         </table>
     </body>
