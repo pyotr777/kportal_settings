@@ -14,13 +14,7 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td rowspan="7" class="group">Apache</td>
-                <td>http.conf : path</td>
-                <td>/etc/httpd/conf/httpd.conf</td>
-                <td><a href="redhat/httpd.conf" target="_blank">redhat/httpd.conf</a></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
+                <td rowspan="5" class="group">Apache</td>
                 <td>apache2.conf : path</td>
                 <td>/etc/apache2/apache2.conf</td>
                 <td><a href="ubuntu/apache2.conf" target="_blank">ubuntu/apache2.conf</a></td>
@@ -39,15 +33,9 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td>http.conf : port</td>
-                <td>80</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
                 <td>http.conf : DocumentRoot : path</td>
-                <td>"/etc/kportal/www"</td>
-                <td>In manual: "/home/kportal/git/source/kpserver" (2.4.1)</td>
+                <td>/etc/kportal/www</td>
+                <td></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -60,16 +48,10 @@
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td rowspan="8" class="group">SSL</td>
+                <td rowspan="6" class="group">SSL</td>
                 <td>ssl.conf : path</td>
                 <td>/etc/apache2/sites-available/default-ssl.conf</td>
-                <td class="mutable"><a href="ubuntu/sites-enabled/default-ssl.conf" target="_blank">ubuntu/sites-enabled/default-ssl.conf</a></td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>ssl.conf : path</td>
-                <td>/etc/httpd/conf.d/ssl.conf</td>
-                <td class="mutable"><a href="redhat/ssl.conf" target="_blank">redhat/ssl.conf</a></td>
+                <td class="mutable-light"><p><a href="ubuntu/sites-enabled/default-ssl.conf" target="_blank">ubuntu/sites-enabled/default-ssl.conf</a></p></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -80,37 +62,29 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>ssl.conf : VirtualHost</td>
-                <td>redhat: 172.31.20.211:9005<br />
-                ubuntu: _default_:443</td>
-                <td>In manual: _default_:9005. <br>
-                To fix errors  "The timeout specified has expired: SSL input filter read failed"  recommended to use specific IP. (on RHEL)<br />
-                Apache2 runs in Dcoker container with port 443 mapped to host port 9005.</td>
+                <td>_default_:443</td>
+                <td>Apache2 runs in Dcoker container with port 443 mapped to host port 9005.</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td>ssl.conf : VirtualHost : options</td>
-                <td>-</td>
-                <td>"SetEnv nokeepalive ssl-unclean-shutdown" recommended for fixing errors "Fix Error: The timeout specified has expired: SSL input filter read failed"</td>
+                <td>apache2.conf : ServerName</td>
+                <td>localhost</td>
+                <td></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td>ssl.conf : ServerName</td>
-                <td>52.196.224.123:9005</td>
-                <td>Need DNS name? ec2-52-196-224-123.ap-northeast-1.compute.amazonaws.com</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>certificated : .crt path</td>
+                <td>certificates : .crt path</td>
                 <td>/etc/kportal/www/ssl/server.crt</td>
-                <td>In install manual: /opt/lampp/etc/ssl.crt/AppMarket/server.crt<br>In user manual 2.1.2 : https://bounceme.anlab.info:9005/Appmarket_test/ssl/server.crt<br>
-                Installed with kp_server in /etc/kportal/www/ssl.</td>
+                <td>Installed with kp_server in /etc/kportal/www/ssl.<br/>
+                    Linked to /etc/kportal/www/ssl/letsencrypt/archive/kportal.ml/cert1.pem<br>
+                </td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td>certificated : .key path</td>
+                <td>certificates : .key path</td>
                 <td>/etc/kportal/www/ssl/server.key</td>
-                <td>In manual "/opt/lampp/etc/ssl.key/AppMarket/server.key<br>
-                Installed with kp_server in /etc/kportal/www/ssl.</td>
+                <td>Installed with kp_server in /etc/kportal/www/ssl.<br/>
+                Linked to /etc/kportal/www/ssl/letsencrypt/archive/kportal.ml/privkey1.pem</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -129,7 +103,7 @@
                 <td>&nbsp;</td>
                 <td>socket : address</td>
                 <td>127.0.0.1:9555</td>
-                <td>In manual: 127.0.0.1:9555</td>
+                <td></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -147,14 +121,14 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>config.xml : websocket URI</td>
-                <td>wss://ec2-52-196-224-123.ap-northeast-1.compute.amazonaws.com:9004/kportal</td>
-                <td>Need external address with /kportal. Local address doesn't work. </td>
+                <td>wss://&lt;DNS addresss&gt;:9004</td>
+                <td>For example: wss://kportal.ml:9004</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
                 <td rowspan="3" class="group">kp_tool</td>
                 <td>path</td>
-                <td>/usr/bin/kp_tool</td>
+                <td>/usr/local/bin/kp_tool</td>
                 <td>Also in /home/kportal/src/release</td>
             </tr>
             <tr>
@@ -173,7 +147,7 @@
                 <td>&nbsp;</td>
                 <td rowspan="10" class="group">kp_server</td>
                 <td>path</td>
-                <td>/usr/bin/kp_server</td>
+                <td>/usr/local/bin/kp_server</td>
                 <td>Also in /home/kportal/src/release</td>
             </tr>
             <tr>
